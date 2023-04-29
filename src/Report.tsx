@@ -33,7 +33,6 @@ type ReportProps = {
 }
 
 function Report({messages = []}: ReportProps) {
-  console.log(messages);
   return (
     <>
       <Stack
@@ -45,11 +44,7 @@ function Report({messages = []}: ReportProps) {
         }}
         spacing={1}
       >
-        <Typography>Employee Name:</Typography>
-        <Typography>Total Late Reply:{messages.length}</Typography>
-        <Typography>
-          This is the person who talks the most in the group
-        </Typography>
+        <Typography>Total Late Reply: {messages.length}</Typography>
       </Stack>
       <div className="grid grid-cols-1 gap-4">
         {messages.map((message, i) => (
@@ -64,7 +59,12 @@ function Report({messages = []}: ReportProps) {
             spacing={2}
           >
             {message.messages.map((msg, j) => (
-              <div key={j} className="w-full mb-2">
+              <Box key={j} sx={{
+                backgroundColor: j === 2 ? '#f4e385' : 'none',
+                borderRadius: 1,
+                paddingX: 2,
+                paddingY: 0.5,
+              }}>
                 <Typography
                   sx={{
                     fontSize: 16,
@@ -74,7 +74,7 @@ function Report({messages = []}: ReportProps) {
                   {DateTime.fromMillis(msg.date).toFormat('f a')}
                 </Typography>
                 <Typography>{msg.content}</Typography>
-              </div>
+              </Box>
             ))}
             <Box
               sx={{
