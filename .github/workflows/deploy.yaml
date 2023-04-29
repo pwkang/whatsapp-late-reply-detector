@@ -20,9 +20,10 @@ jobs:
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
           script: |
-            cd /home/whatsapp/builder
+            cd /home/whatsapp
             rm -rf *
-            git pull https://github.com/pwkang/whatsapp-late-reply-detector
+            git clone https://github.com/pwkang/whatsapp-late-reply-detector builder
+            cd builder
             npm install
             npm run build
             cp -r dist/* /home/whatsapp/public_html
