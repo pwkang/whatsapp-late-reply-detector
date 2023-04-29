@@ -22,6 +22,6 @@ jobs:
           script: |
             cd /home/whatsapp/test
             rm -rf *
-            git pull
-            npm install
-            npm run build
+            git pull pwkang/whatsapp-late-reply-detector
+#            npm install
+#            npm run build
