@@ -32,5 +32,8 @@ jobs:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
-          source: ./dist/*
-          target: /var/whatsapp/builder
+          port: ${{ secrets.PORT }}
+          script: |
+            cd /home/whatsapp/public_html
+            rm -rf *
+            cp -r ${{ github.workspace }}/dist/* .
