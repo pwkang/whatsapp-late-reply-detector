@@ -27,13 +27,11 @@ jobs:
         run: npm run build
 
       - name: Copy built files to server
-        uses: appleboy/ssh-action@master
+        uses: appleboy/scp-action@v0.1.4
         with:
           host: ${{ secrets.HOST }}
           username: ${{ secrets.USERNAME }}
           password: ${{ secrets.PASSWORD }}
           port: ${{ secrets.PORT }}
-          script: |
-            cd /home/whatsapp/public_html
-            rm -rf *
-            cp -r ${{ github.workspace }}/dist/* .
+          source: "dist"
+          target: "/home/whatsapp/public_html"
