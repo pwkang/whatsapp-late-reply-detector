@@ -26,3 +26,6 @@ jobs:
             npm install
             npm run build
             cp -r dist/* /home/whatsapp/public_html
+      - name: write line
+        run: |
+          echo "Deployed at $(date)"
