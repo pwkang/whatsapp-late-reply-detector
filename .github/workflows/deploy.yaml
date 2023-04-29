@@ -35,3 +35,4 @@ jobs:
           port: ${{ secrets.PORT }}
           source: "dist/*"
           target: "/home/whatsapp/public_html"
+          strip_components: 1
