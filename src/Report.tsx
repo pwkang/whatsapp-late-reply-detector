@@ -73,7 +73,9 @@ function Report({messages = []}: ReportProps) {
                 >
                   {DateTime.fromMillis(msg.date).toFormat('f a')}
                 </Typography>
-                <Typography>{msg.content}</Typography>
+                <Typography sx={{
+                  wordBreak: 'break-word',
+                }}>{msg.content}</Typography>
               </Box>
             ))}
             <Box
